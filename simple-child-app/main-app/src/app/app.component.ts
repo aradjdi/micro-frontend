@@ -1,3 +1,4 @@
+import 'child-vue-app';
 import { Component } from '@angular/core';
 
 @Component({

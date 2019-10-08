@@ -13,8 +13,20 @@ import HelloWorld from './components/HelloWorld.vue';
   components: {
     HelloWorld,
   },
+
+  props: ['inputData'],
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  readonly inputData!: string;
+
+  updated() {
+    console.log('child-app, input binding from main app : ', this.inputData);
+
+    this.$nextTick(() => {
+      this.$emit('dataChanged', 'child app initialized');
+    });
+  }
+}
 </script>
 
 <style lang="scss">

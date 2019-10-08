@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'main-app';
+
+  childData = 'init child component';
+
+  onDataChanged({ detail }) {
+    console.log('main-app, output event receive from child app : ', detail);
+  }
 }

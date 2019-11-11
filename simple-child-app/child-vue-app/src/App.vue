@@ -1,30 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import router from './router';
 
 @Component({
-  components: {
-    HelloWorld,
-  },
-
+  router,
   props: ['inputData'],
 })
 export default class App extends Vue {
   readonly inputData!: string;
 
-  updated() {
-    console.log('child-app, input binding from main app : ', this.inputData);
-
+  created() {
     this.$nextTick(() => {
       this.$emit('dataChanged', 'child app initialized');
     });
+  }
+
+  updated() {
+    console.log('child-app, input binding from main app : ', this.inputData);
   }
 }
 </script>

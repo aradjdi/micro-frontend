@@ -2,20 +2,22 @@
   "name": "child-vue-app",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/child-vue-app.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "release": "vue-cli-service build --target wc --inline-vue --name child-vue-app",
+    "release:watch": "vue-cli-service build --target wc --inline-vue --name child-vue-app --watch",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit",
-    "release": "vue-cli-service build --target wc --inline-vue --name child-vue-app"
+    "test:unit": "vue-cli-service test:unit"
   },
+  "main": "dist/child-vue-app.js",
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
-    "vue-property-decorator": "^8.1.0"
+    "vue-property-decorator": "^8.1.0",
+    "vue-router": "^3.0.3"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
